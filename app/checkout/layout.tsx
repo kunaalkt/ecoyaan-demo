@@ -3,7 +3,8 @@ import { CheckoutProvider } from "./context/CheckoutContext";
 import { CartResponse } from "@/types";
 
 async function getCartData(): Promise<CartResponse> {
-  const res = await fetch("http://localhost:3000/api/cart", {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const res = await fetch(`${baseUrl}/api/cart`, {
     cache: "no-store",
   });
 
